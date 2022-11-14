@@ -37,3 +37,7 @@ void printMovie(Movie mv)
 	std::cout << mv.title << " " << g << " (" << mv.duration << " min)" << std::endl;
 }
 
+void getTimeSlot(Timeslot ts)
+{
+	
+}
