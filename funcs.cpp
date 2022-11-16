@@ -68,3 +68,15 @@ std::string getTimeSlot(TimeSlot ts)
 	
 	return timeSlot;
 }
+
+TimeSlot scheduleAfter(TimeSlot ts, Movie nextMovie)
+{
+	Time nextTime = addMinutes(ts.startTime, ts.movie.duration);
+	TimeSlot newMovie = {nextMovie, nextTime};
+	return newMovie;
+}
+
+bool timeOverlap(TimeSlot ts1, TimeSlot ts2)
+{
+	
+}

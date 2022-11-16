@@ -23,10 +23,17 @@ int main()
 	
 	std::cout << "Task B: " << std::endl;
 	Time add = addMinutes(now, 60);
-	std::cout << "Time: " << add.h << ":" << add.m << std::endl;
+	std::cout << "Time: " << printTime(add) << std::endl;
 	
 	std::cout << "Task C: " << std::endl;
 	std::cout << getTimeSlot(morning) << std::endl;
+	
+	std::cout << "Task D: " << std::endl;
+	TimeSlot nextMovie = scheduleAfter(morning, movie2);
+	std::cout << printMovie(nextMovie.movie) << " starts at " << printTime(nextMovie.startTime) << std::endl;
+	
+	std::cout << "Task E: " << std::endl;
+	
 	
 	return 0;
 }
