@@ -24,9 +24,9 @@ int main()
 	std::cout << "Task B: " << std::endl;
 	Time add = addMinutes(now, 60);
 	std::cout << "Time: " << add.h << ":" << add.m << std::endl;
-	printMovie(movie1);
 	
 	std::cout << "Task C: " << std::endl;
+	std::cout << getTimeSlot(morning) << std::endl;
 	
 	return 0;
 }

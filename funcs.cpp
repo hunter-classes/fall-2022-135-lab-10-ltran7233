@@ -1,8 +1,18 @@
 #include <iostream>
+#include <string>
 #include "funcs.h"
 #include "time.h"
 #include "movie.h"
 #include "timeslot.h"
+
+std::string printTime(Time time)
+{
+	std::string ti = "";
+	ti += std::to_string(time.h);
+	ti += ":";
+	ti += std::to_string(time.m);
+	return ti;
+}
 
 int minutesSinceMidnight(Time time)
 {
@@ -24,8 +34,9 @@ Time addMinutes(Time time0, int min)
 	return newTime;
 }
 
-void printMovie(Movie mv)
+std::string printMovie(Movie mv)
 {
+	std::string movie = "";
 	std::string g;
 	switch (mv.genre) {
 		case ACTION		: g = "ACTION"; break;
@@ -34,10 +45,26 @@ void printMovie(Movie mv)
 		case ROMANCE	: g = "ROMANCE"; break;
 		case THRILLER	: g = "THRILLER"; break;
 	}
-	std::cout << mv.title << " " << g << " (" << mv.duration << " min)" << std::endl;
+	movie += mv.title;
+	movie += " ";
+	movie += g;
+	movie += " (";
+	movie += std::to_string(mv.duration);
+	movie += " min)";
+	return movie;
 }
 
-void getTimeSlot(Timeslot ts)
+std::string getTimeSlot(TimeSlot ts)
 {
+	std::string timeSlot = printMovie(ts.movie);
+	timeSlot += " [starts at ";
+	timeSlot += printTime(ts.startTime);
+	timeSlot += ", ends by ";
+	Time newTime = addMinutes(ts.startTime, ts.movie.duration);
+	timeSlot += std::to_string(newTime.h);
+	timeSlot += ":";
+	timeSlot += std::to_string(newTime.m);
+	timeSlot += "]";
 	
+	return timeSlot;
 }

@@ -5,10 +5,11 @@
 #include "movie.h"
 #include "timeslot.h"
 
+std::string printTime(Time time);
 int minutesSinceMidnight(Time time);
 int minutesUntil(Time earlier, Time later);
 Time addMinutes(Time time0, int min);
-void printMovie(Movie mv);
-void getTimeSlot(Timeslot ts);
+std::string printMovie(Movie mv);
+std::string getTimeSlot(TimeSlot ts);
 
 #endif
