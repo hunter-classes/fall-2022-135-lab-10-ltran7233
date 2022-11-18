@@ -13,9 +13,9 @@ int main()
 	TimeSlot morning = {movie1, {9, 15}};
 	TimeSlot daytime = {movie2, {12, 15}};
 	TimeSlot evening = {movie2, {16, 45}};
-	TimeSlot early_afternoon = {movie3, {1, 5}};
-	TimeSlot mid_afternoon = {movie4, {2, 30}};
-	TimeSlot late_afternoon = {movie5, {4, 35}};
+	TimeSlot early_afternoon = {movie3, {13, 5}};
+	TimeSlot mid_afternoon = {movie4, {14, 30}};
+	TimeSlot late_afternoon = {movie5, {16, 35}};
 	
 	std::cout << "Task A: " << std::endl;
 	std::cout << minutesSinceMidnight(now) << " min since midnight" << std::endl;
@@ -33,7 +33,8 @@ int main()
 	std::cout << printMovie(nextMovie.movie) << " starts at " << printTime(nextMovie.startTime) << std::endl;
 	
 	std::cout << "Task E: " << std::endl;
-	
+	bool check = timeOverlap(evening, late_afternoon);
+	std::cout << "Do the timeSlots late_afternoon and evening overlap?: " << check << std::endl; // true
 	
 	return 0;
 }
