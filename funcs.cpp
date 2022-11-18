@@ -10,6 +10,10 @@ std::string printTime(Time time)
 	std::string ti = "";
 	ti += std::to_string(time.h);
 	ti += ":";
+	if (time.m<10)
+	{
+		ti += "0";
+	}
 	ti += std::to_string(time.m);
 	return ti;
 }
@@ -61,9 +65,7 @@ std::string getTimeSlot(TimeSlot ts)
 	timeSlot += printTime(ts.startTime);
 	timeSlot += ", ends by ";
 	Time newTime = addMinutes(ts.startTime, ts.movie.duration);
-	timeSlot += std::to_string(newTime.h);
-	timeSlot += ":";
-	timeSlot += std::to_string(newTime.m);
+	timeSlot += printTime(newTime);
 	timeSlot += "]";
 	
 	return timeSlot;
